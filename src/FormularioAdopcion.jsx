@@ -3,7 +3,7 @@ import FiltroMascotas from './FiltroMascotas';
 import ListaMascotas from './ListaMascotas';
 import FormularioSolicitud from './FormularioSolicitud';
 
-const FormularioAdopcion = () => {
+function FormularioAdopcion() {
     const [mascotas, setMascotas] = useState([]);
     const [mascotasFiltradas, setMascotasFiltradas] = useState([]);
     const [mascotaSeleccionada, setMascotaSeleccionada] = useState(null);
@@ -32,7 +32,7 @@ const FormularioAdopcion = () => {
         obtenerMascotas();
     }, []);
 
-    // filtro de caracteristicas
+    // filtro de características
     const filtrarMascotas = () => {
         const resultado = mascotas.filter(mascota => {
             return (
@@ -64,12 +64,18 @@ const FormularioAdopcion = () => {
         <div>
             <h1>Formulario de Adopción</h1>
             <FiltroMascotas filtros={filtros} manejarCambioFiltros={manejarCambioFiltros} />
-            <ListaMascotas mascotas={mascotasFiltradas} seleccionarMascota={setMascotaSeleccionada} />
+            <ListaMascotas 
+                mascotas={mascotasFiltradas} 
+                seleccionarMascota={setMascotaSeleccionada} 
+            />
             {mascotaSeleccionada && (
-                <FormularioSolicitud mascota={mascotaSeleccionada} enviarSolicitud={enviarSolicitudAdopcion} />
+                <FormularioSolicitud 
+                    mascota={mascotaSeleccionada} 
+                    enviarSolicitud={enviarSolicitudAdopcion} 
+                />
             )}
         </div>
     );
-};
+}
 
 export default FormularioAdopcion;

@@ -1,16 +1,16 @@
 import React from 'react';
 
-const FiltroMascotas = ({ filtros, manejarCambioFiltros }) => {
-    const manejarCambio = (e) => {
+function FiltroMascotas({ filtros, manejarCambioFiltros }) {
+    function manejarCambio(e) {
         const { name, value } = e.target;
         manejarCambioFiltros({
             ...filtros,
             [name]: value
         });
-    };
+    }
 
     return (
-        <div>
+        <div className="filtro-mascotas">
             <h2>Filtrar Mascotas</h2>
             <input
                 type="text"
@@ -49,6 +49,6 @@ const FiltroMascotas = ({ filtros, manejarCambioFiltros }) => {
             />
         </div>
     );
-};
+}
 
 export default FiltroMascotas;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const FormularioSolicitud = ({ mascota, enviarSolicitud }) => {
+function FormularioSolicitud({ mascota, enviarSolicitud }) {
     const [datos, setDatos] = useState({
         nombre: '',
         email: '',
@@ -9,24 +9,24 @@ const FormularioSolicitud = ({ mascota, enviarSolicitud }) => {
         comentario: ''
     });
 
-    const manejarCambio = (e) => {
+    function manejarCambio(e) {
         const { name, value } = e.target;
         setDatos({
             ...datos,
             [name]: value
         });
-    };
+    }
 
-    const manejarEnvio = (e) => {
+    function manejarEnvio(e) {
         e.preventDefault();
         enviarSolicitud({
             ...datos,
             mascotaId: mascota.id
         });
-    };
+    }
 
     return (
-        <form onSubmit={manejarEnvio}>
+        <form className="formulario-solicitud" onSubmit={manejarEnvio}>
             <h2>Solicitud de Adopción para {mascota.nombre}</h2>
             <input
                 type="text"
@@ -34,6 +34,7 @@ const FormularioSolicitud = ({ mascota, enviarSolicitud }) => {
                 placeholder="Tu nombre"
                 value={datos.nombre}
                 onChange={manejarCambio}
+                required
             />
             <input
                 type="email"
@@ -41,6 +42,7 @@ const FormularioSolicitud = ({ mascota, enviarSolicitud }) => {
                 placeholder="Tu correo electrónico"
                 value={datos.email}
                 onChange={manejarCambio}
+                required
             />
             <input
                 type="tel"
@@ -48,6 +50,7 @@ const FormularioSolicitud = ({ mascota, enviarSolicitud }) => {
                 placeholder="Tu teléfono"
                 value={datos.telefono}
                 onChange={manejarCambio}
+                required
             />
             <input
                 type="text"
@@ -55,6 +58,7 @@ const FormularioSolicitud = ({ mascota, enviarSolicitud }) => {
                 placeholder="Tu dirección"
                 value={datos.direccion}
                 onChange={manejarCambio}
+                required
             />
             <textarea
                 name="comentario"
@@ -65,6 +69,6 @@ const FormularioSolicitud = ({ mascota, enviarSolicitud }) => {
             <button type="submit">Enviar Solicitud</button>
         </form>
     );
-};
+}
 
 export default FormularioSolicitud;

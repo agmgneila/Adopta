@@ -50,12 +50,12 @@ function App() {
 
     const enviarSolicitudAdopcion = (datosSolicitud) => {
         console.log('Datos de la solicitud de adopción:', datosSolicitud);
-        alert('Solicitud de adopción enviada con éxito (simulado).');
+        alert('Solicitud de adopción enviada con éxito, esperamos que puedas vivir con tu nuevo amigo lo antes posible!');
     };
 
     return (
         <div className="App">
-            <h1>Formulario de Adopción de Mascotas</h1>
+            <h1>Adopta un nuevo amigo peludo!!</h1>
             <FiltroMascotas filtros={filtros} manejarCambioFiltros={actualizarFiltros} />
             <ListaMascotas 
                 mascotas={mascotasFiltradas} 
